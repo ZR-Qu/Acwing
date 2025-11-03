@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "math.h": "c",
+        "iostream": "cpp",
+        "cmath": "c",
+        "stdio.h": "c",
+        "10-2.C": "cpp",
+        "OJ2_1.C": "cpp",
+        "OJ_2_2.C": "cpp",
+        "8_2_(1).C": "cpp"
+    }
+}
