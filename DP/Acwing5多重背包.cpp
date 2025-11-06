@@ -30,12 +30,10 @@ int main(){
         if(s > 0){
             v[cnt] = a * s;
             w[cnt] = b * s;
-            cnt ++;
         }
     }
 
     for(int i = 1 ; i <= cnt ; i++)
-    
         for(int j = V ; j >= v[i] ; j --)   
             f[j] = max(f[j] , f[j-v[i]] + w[i]);
 
