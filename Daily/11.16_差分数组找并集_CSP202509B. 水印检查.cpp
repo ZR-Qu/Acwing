@@ -26,7 +26,7 @@ int main(){
         }
     }
 
-    for(int i = 0; i <= n-5; i++){
+    for(int i = 0; i <= n-5; i++){  //注意取等边界
         for(int j = 0; j <= n-9; j++){
             int max_k = l;
             int min_k = 0;
@@ -38,7 +38,7 @@ int main(){
             }
             if(min_k <= max_k){
                 diff[min_k]++;
-                diff[max_k+1]--;
+                diff[max_k+1]--;    //注意差分公式
             }
         }
     }
