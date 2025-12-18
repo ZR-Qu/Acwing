@@ -28,18 +28,19 @@ int main(){
 
             int v[20], w[20];
 
-            int k = 1,cnt = 1;
+            int k = 1,cnt = 0;
 
             while(c >= k){
+                cnt++;
                 v[cnt] = b*k;
                 w[cnt] = a*k;
 
                 c -= k;
                 k = k << 1;
-                cnt++;
             }
 
             if(c){
+                cnt++;
                 v[cnt] = b*c;
                 w[cnt] = a*c;
             }
