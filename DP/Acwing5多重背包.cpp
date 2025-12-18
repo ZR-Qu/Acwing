@@ -11,7 +11,7 @@ int main(){
     int n , V;
     cin >> n >> V;
 
-    int cnt = 1 ;   //计数要在循环处理的外面
+    int cnt = 0;   //计数要在循环处理的外面
 
     for(int i = 1 ; i <= n ; i ++){
         int a , b , s;
@@ -20,14 +20,15 @@ int main(){
         int k = 1;  //每次二进制分解要重置 ， k要在循环内
         
         while(s >= k){
+            cnt++;
             v[cnt] = a * k;
             w[cnt] = b * k ;
 
             s -= k;
             k = k * 2;
-            cnt ++;
         }
         if(s > 0){
+            cnt++;
             v[cnt] = a * s;
             w[cnt] = b * s;
         }
