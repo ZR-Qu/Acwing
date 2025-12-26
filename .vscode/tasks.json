@@ -1,25 +1,43 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "cppbuild",
-			"label": "C/C++: gcc.exe 生成活动文件",
-			"command": "D:\\VSCode\\mingw64\\bin\\gcc.exe",
-			"args": [
-				"-fdiagnostics-color=always",
-				"-g",
-				"${file}",
-				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
-			],
-			"options": {
-				"cwd": "D:\\VSCode\\mingw64\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": "build",
-			"detail": "编译器: D:\\VSCode\\mingw64\\bin\\gcc.exe"
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "prepare_output_dir",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "if not exist \"${fileDirname}\\output\" mkdir \"${fileDirname}\\output\""
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "cppbuild",
+            // 保持这个名字，这样“运行 C/C++ 文件”按钮会自动识别它
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "D:/VSCode/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                // 修改点：强制输出到 output 目录
+                "${fileDirname}\\output\\${fileBasenameNoExtension}.exe",
+                "-std=c++17"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            // 修改点：编译前强制创建文件夹
+            "dependsOn": "prepare_output_dir",
+            "detail": "修改后的编译器任务，输出到 output 文件夹"
+        }
+    ]
 }
