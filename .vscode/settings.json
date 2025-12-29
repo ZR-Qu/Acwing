@@ -4,20 +4,7 @@
     "PATH": "D:\\VSCode\\mingw64\\bin;${env:PATH}"
   },
 
-  // --- Code Runner 插件设置 (右上角 Run Code) ---
-  "code-runner.runInTerminal": true, // 这里设为 true 是为了让命令在终端触发，但具体的命令会用 start 弹窗
-  "code-runner.executorMap": {
-    // 【核心魔法】
-    // 1. 进入目录
-    // 2. 建 output 文件夹
-    // 3. 编译到 output
-    // 4. 使用 start cmd 弹出新窗口运行 exe，并加 pause 暂停
-    "cpp": "cd /d \"${fileDirname}\" && if not exist output mkdir output && D:\\VSCode\\mingw64\\bin\\g++.exe -std=c++17 -O2 -Wall -g \"${file}\" -o \"${fileDirname}\\output\\${fileBasenameNoExtension}.exe\" && start cmd /c \"\"${fileDirname}\\output\\${fileBasenameNoExtension}.exe\" & pause\""
-  },
-  "code-runner.ignoreSelection": true,
-  "code-runner.saveFileBeforeRun": true,
-
-  // --- 微软 C/C++ 插件默认设置 ---
+  // --- C/C++ 插件设置 ---
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.compilerPath": "D:\\VSCode\\mingw64\\bin\\g++.exe"
