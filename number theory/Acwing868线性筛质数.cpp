@@ -1,3 +1,6 @@
+/*
+    线性筛，每次用最小质因子筛
+*/
 #include <iostream>
 using namespace std;
 
